@@ -34,4 +34,3 @@ gcov_report: s21_string.a
 
 clean:
 	rm -rf *.o *.a *.gcno *.gcda *.gcov *.info $(REPORTDIR) s21_test s21_string
-
