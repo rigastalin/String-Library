@@ -8,6 +8,13 @@
 
 #include "s21_errno.h"
 
+void *s21_memchr(const void *str, int c, s21_size_t n) {
+  char *res = (char *)str;
+  for (; n > 0 && *res != c; n--, res++) {
+  }
+  return !n ? s21_NULL : res;
+}
+
 int s21_memcmp(const void *str1, const void *str2, s21_size_t n) {
   const unsigned char *p1 = str1, *p2 = str2;
   int result = 0;
@@ -15,16 +22,6 @@ int s21_memcmp(const void *str1, const void *str2, s21_size_t n) {
     if (*p1 != *p2) {
       result = (*p1 > *p2) ? 1 : -1;
     }
-  }
-  return result;
-}
-
-
-int s21_memcmp(const void *str1, const void *str2, s21_size_t n) {
-  const unsigned char *p1 = str1, *p2 = str2;
-  int result = 0;
-  for (s21_size_t i = 0; i < n && result == 0; i++, p1++, p2++) {
-    result = *p1 - *p2;
   }
   return result;
 }
